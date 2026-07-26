@@ -11,14 +11,14 @@ const User = require("./models/User");
 const Company = require("./models/Company");
 const Note = require("./models/Note");
 const Task = require("./models/Task");
-
+require("dotenv").config();
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb+srv://minchu062_db_user:7AfV5NV2p3674rec@cluster0.m4vnrf0.mongodb.net/placementDB?retryWrites=true&w=majority&appName=Cluster0")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
