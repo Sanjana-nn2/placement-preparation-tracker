@@ -19,7 +19,7 @@ function Register() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/register", {
+      await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/register", {
         name,
         email,
         password,

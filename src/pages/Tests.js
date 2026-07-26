@@ -10,7 +10,7 @@ function Tests() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const fetchTests = async () => {
-    const res = await axios.get(`http://localhost:5000/get-tests/${user.id}`);
+    const res = await axios.get(`https://placement-preparation-tracker-1-ayd3.onrender.com/get-tests/${user.id}`);
     setTests(res.data);
   };
 
@@ -30,14 +30,14 @@ function Tests() {
     }
 
     if (editId) {
-      await axios.put(`http://localhost:5000/update-test/${editId}`, {
+      await axios.put(`https://placement-preparation-tracker-1-ayd3.onrender.com/update-test/${editId}`, {
         testName,
         score,
       });
 
       setEditId(null);
     } else {
-      await axios.post("http://localhost:5000/add-test", {
+      await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-test", {
         testName,
         score,
         userId: user.id,
@@ -62,7 +62,7 @@ function Tests() {
 
     if (!confirmDelete) return;
 
-    await axios.delete(`http://localhost:5000/delete-test/${id}`);
+    await axios.delete(`https://placement-preparation-tracker-1-ayd3.onrender.com/delete-test/${id}`);
     fetchTests();
   };
 

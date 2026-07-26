@@ -18,7 +18,7 @@ function Problems() {
   }, []);
 
   const fetchProblems = async () => {
-    const res = await axios.get(`http://localhost:5000/get-problems/${user.id}`);
+    const res = await axios.get(`https://placement-preparation-tracker-1-ayd3.onrender.com/get-problems/${user.id}`);
     setProblems(res.data);
   };
 
@@ -29,7 +29,7 @@ function Problems() {
     }
 
     if (editId) {
-      await axios.put(`http://localhost:5000/update-problem/${editId}`, {
+      await axios.put(`https://placement-preparation-tracker-1-ayd3.onrender.com/update-problem/${editId}`, {
         title,
         difficulty,
       });
@@ -37,7 +37,7 @@ function Problems() {
       toast.success("Problem updated successfully!");
       setEditId(null);
     } else {
-      await axios.post("http://localhost:5000/add-problem", {
+      await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-problem", {
         title,
         difficulty,
         userId: user.id,
@@ -64,7 +64,7 @@ function Problems() {
 
     if (!confirmDelete) return;
 
-    await axios.delete(`http://localhost:5000/delete-problem/${id}`);
+    await axios.delete(`https://placement-preparation-tracker-1-ayd3.onrender.com/delete-problem/${id}`);
     fetchProblems();
     toast.success("Problem deleted successfully!");
   };

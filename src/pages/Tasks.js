@@ -11,7 +11,7 @@ function Tasks() {
   const [editId, setEditId] = useState(null);
 
   const fetchTasks = async () => {
-    const res = await axios.get(`http://localhost:5000/get-tasks/${user.id}`);
+    const res = await axios.get(`https://placement-preparation-tracker-1-ayd3.onrender.com/get-tasks/${user.id}`);
     setTasks(res.data);
   };
 
@@ -26,7 +26,7 @@ function Tasks() {
     }
 
     if (editId) {
-      await axios.put(`http://localhost:5000/update-task/${editId}`, {
+      await axios.put(`https://placement-preparation-tracker-1-ayd3.onrender.com/update-task/${editId}`, {
         taskTitle,
         priority,
         status,
@@ -34,7 +34,7 @@ function Tasks() {
 
       setEditId(null);
     } else {
-      await axios.post("http://localhost:5000/add-task", {
+      await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-task", {
         taskTitle,
         priority,
         status,
@@ -62,7 +62,7 @@ function Tasks() {
 
     if (!confirmDelete) return;
 
-    await axios.delete(`http://localhost:5000/delete-task/${id}`);
+    await axios.delete(`https://placement-preparation-tracker-1-ayd3.onrender.com/delete-task/${id}`);
     fetchTasks();
   };
 

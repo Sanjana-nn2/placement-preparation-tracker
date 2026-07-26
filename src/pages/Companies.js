@@ -12,7 +12,7 @@ function Companies() {
 
   const fetchCompanies = async () => {
     const res = await axios.get(
-      `http://localhost:5000/get-companies/${user.id}`
+      `https://placement-preparation-tracker-1-ayd3.onrender.com/get-companies/${user.id}`
     );
     setCompanies(res.data);
   };
@@ -28,7 +28,7 @@ function Companies() {
     }
 
     if (editId) {
-      await axios.put(`http://localhost:5000/update-company/${editId}`, {
+      await axios.put(`https://placement-preparation-tracker-1-ayd3.onrender.com/update-company/${editId}`, {
         companyName,
         targetRole,
         status,
@@ -36,7 +36,7 @@ function Companies() {
 
       setEditId(null);
     } else {
-      await axios.post("http://localhost:5000/add-company", {
+      await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-company", {
         companyName,
         targetRole,
         status,
@@ -64,7 +64,7 @@ function Companies() {
 
     if (!confirmDelete) return;
 
-    await axios.delete(`http://localhost:5000/delete-company/${id}`);
+    await axios.delete(`https://placement-preparation-tracker-1-ayd3.onrender.com/delete-company/${id}`);
     fetchCompanies();
   };
 
