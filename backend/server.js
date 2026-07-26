@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/placementDB")
+  .connect("mongodb+srv://minchu062_db_user:7AfV5NV2p3674rec@cluster0.m4vnrf0.mongodb.net/placementDB?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
