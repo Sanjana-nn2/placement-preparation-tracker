@@ -19,7 +19,7 @@ function Register() {
     e.preventDefault();
 
     try {
-      await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/register", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
         name,
         email,
         password,

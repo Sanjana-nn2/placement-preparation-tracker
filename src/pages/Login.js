@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/login", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
         email,
         password,
       });

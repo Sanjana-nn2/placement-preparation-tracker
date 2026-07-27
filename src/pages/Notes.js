@@ -11,7 +11,7 @@ function Notes() {
   const [editId, setEditId] = useState(null);
 
   const fetchNotes = async () => {
-    const res = await axios.get(`https://placement-preparation-tracker-1-ayd3.onrender.com/get-notes/${user.id}`);
+    const res = await axios.get(`http://localhost:5000/get-notes/${user.id}`);
     setNotes(res.data);
   };
 
@@ -26,7 +26,7 @@ function Notes() {
     }
 
     if (editId) {
-      await axios.put(`https://placement-preparation-tracker-1-ayd3.onrender.com/update-note/${editId}`, {
+      await axios.put(`http://localhost:5000/update-note/${editId}`, {
         title,
         category,
         content,
@@ -34,7 +34,7 @@ function Notes() {
 
       setEditId(null);
     } else {
-      await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-note", {
+      await axios.post("http://localhost:5000/add-note", {
         title,
         category,
         content,
@@ -62,7 +62,7 @@ function Notes() {
 
     if (!confirmDelete) return;
 
-    await axios.delete(`https://placement-preparation-tracker-1-ayd3.onrender.com/delete-note/${id}`);
+    await axios.delete(`http://localhost:5000/delete-note/${id}`);
     fetchNotes();
   };
 

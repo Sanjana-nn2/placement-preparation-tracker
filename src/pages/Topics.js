@@ -10,7 +10,7 @@ function Topics() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const fetchTopics = async () => {
-    const res = await axios.get(`https://placement-preparation-tracker-1-ayd3.onrender.com/get-topics/${user.id}`);
+    const res = await axios.get(`http://localhost:5000/get-topics/${user.id}`);
     setTopics(res.data);
   };
 
@@ -22,12 +22,12 @@ function Topics() {
     if (topic.trim() === "") return;
 
     if (editId) {
-      await axios.put(`https://placement-preparation-tracker-1-ayd3.onrender.com/update-topic/${editId}`, {
+      await axios.put(`http://localhost:5000/update-topic/${editId}`, {
         name: topic,
       });
       setEditId(null);
     } else {
-      await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-topic", {
+      await axios.post("http://localhost:5000/add-topic", {
         name: topic,
         userId: user.id,
       });
@@ -44,7 +44,7 @@ function Topics() {
 
     if (!confirmDelete) return;
 
-    await axios.delete(`https://placement-preparation-tracker-1-ayd3.onrender.com/delete-topic/${id}`);
+    await axios.delete(`http://localhost:5000/delete-topic/${id}`);
     fetchTopics();
   };
 

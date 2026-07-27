@@ -80,23 +80,23 @@ useEffect(() => {
   const fetchDashboardData = async () => {
     try {
       const topicsRes = await axios.get(
-        `https://placement-preparation-tracker-1-ayd3.onrender.com/get-topics/${user.id}`
+        `http://localhost:5000/get-topics/${user.id}`
       );
 
       const problemsRes = await axios.get(
-        `https://placement-preparation-tracker-1-ayd3.onrender.com/get-problems/${user.id}`
+        `http://localhost:5000/get-problems/${user.id}`
       );
 
       const testsRes = await axios.get(
-        `https://placement-preparation-tracker-1-ayd3.onrender.com/get-tests/${user.id}`
+        `http://localhost:5000/get-tests/${user.id}`
       );
 
       const companiesRes = await axios.get(
-        `https://placement-preparation-tracker-1-ayd3.onrender.com/get-companies/${user.id}`
+        `http://localhost:5000/get-companies/${user.id}`
       );
 
       const notesRes = await axios.get(
-        `https://placement-preparation-tracker-1-ayd3.onrender.com/get-notes/${user.id}`
+        `http://localhost:5000/get-notes/${user.id}`
       );
 
       setTopics(topicsRes.data);
@@ -296,14 +296,14 @@ if (readinessScore >= 80) {
       const data = JSON.parse(text);
 
       for (const topic of data.topics || []) {
-        await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-topic", {
+        await axios.post("http://localhost:5000/add-topic", {
           name: topic.name,
           userId: user.id,
         });
       }
 
       for (const problem of data.problems || []) {
-        await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-problem", {
+        await axios.post("http://localhost:5000/add-problem", {
           title: problem.title,
           difficulty: problem.difficulty,
           userId: user.id,
@@ -311,7 +311,7 @@ if (readinessScore >= 80) {
       }
 
       for (const test of data.tests || []) {
-        await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-test", {
+        await axios.post("http://localhost:5000/add-test", {
           testName: test.testName,
           score: test.score,
           userId: user.id,
@@ -319,7 +319,7 @@ if (readinessScore >= 80) {
       }
 
       for (const company of data.companies || []) {
-        await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-company", {
+        await axios.post("http://localhost:5000/add-company", {
           companyName: company.companyName,
           targetRole: company.targetRole,
           status: company.status,
@@ -328,7 +328,7 @@ if (readinessScore >= 80) {
       }
 
       for (const note of data.notes || []) {
-        await axios.post("https://placement-preparation-tracker-1-ayd3.onrender.com/add-note", {
+        await axios.post("http://localhost:5000/add-note", {
           title: note.title,
           category: note.category,
           content: note.content,
